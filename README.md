@@ -58,6 +58,8 @@ Presentation components are the components that will comprise the UI of the appl
 
 ## <a name="sm-ngrx">State Management</a>
 
+**Read through the [NgRx](https://ngrx.io) documentation to familiarize yourself with NgRx concepts**
+
 Assignforce will use [NgRx](https://ngrx.io) for state management. NgRx is an an implementation of the [Flux UI Design Pattern](https://facebook.github.io/flux). State management with NgRx simplifies the flow of data and state changes and delegates this behavior to a single entity, the state store. Application state will be broken into 2 sections: [Root](#sm-root) state and [Feature](#sm-feat) state.
 
 ### <a name="sm-root">Root State</a>
@@ -66,4 +68,4 @@ The root state will be application wide state such as global settings and curren
 
 ### <a name="sm-feat">Feature State</a>
 
-The feature state will contain state for each feature. Each feature module will have its own unique state handled by its own feature [Reducer(s)](https://ngrx.io/guide/store/reducers).
+The feature state will contain state for each feature. Each feature module will have its own unique state handled by its own feature [Reducer(s)](https://ngrx.io/guide/store/reducers). Check [Batch Module](./src/app/batch/batch.module.ts#L9) for and example of configuring a feature level store

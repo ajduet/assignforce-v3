@@ -6,6 +6,10 @@ import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule, StoreModule.forFeature('batches', {})]
+  imports: [
+    CommonModule,
+    // configure the feature level Store with its reducers
+    StoreModule.forFeature('batches', {})
+  ]
 })
 export class BatchModule {}

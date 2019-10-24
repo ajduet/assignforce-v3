@@ -22,6 +22,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   imports: [
     BrowserModule,
     AppRoutingModule,
+    // configure the Root level store with its reducers.
+    //
     StoreModule.forRoot({}, { metaReducers }),
     environment.development ? StoreDevtoolsModule.instrument() : []
   ],

@@ -11,6 +11,7 @@
   - [State Management](#sm-ngrx)
     - [Root](#sm-root)
     - [Feature](#sm-feat)
+    - [Store Placement](#sm-place)
 
 # <a name="intro">AssignforceV3</a>
 

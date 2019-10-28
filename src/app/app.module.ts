@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
+import { BatchModule } from './batch/batch.module';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
@@ -25,7 +26,9 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     // configure the Root level store with its reducers.
     //
     StoreModule.forRoot({}, { metaReducers }),
-    environment.development ? StoreDevtoolsModule.instrument() : []
+    environment.development ? StoreDevtoolsModule.instrument() : [],
+    // Feature Modules
+    BatchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

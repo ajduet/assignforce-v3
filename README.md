@@ -63,7 +63,7 @@ Presentation components are the components that will comprise the UI of the appl
 
 #### <a name="comp-name">Component Naming</a>
 
-Components and service should have names appropriate to describe their type and function `*.component.ts` or `*.service.ts`. The only exception is [Page](#comp-page) components `*.page.ts`. The special name makes them easy to find in the directory structure.
+Components and service should have names appropriate to describe their type and function `*.component.ts` or `*.service.ts`. The only exception is [Page](#comp-page) components `*-page.component.ts`. The special name makes them easy to find in the directory structure.
 
 #### <a name="comp-place">Component Placement </a>
 
@@ -75,8 +75,9 @@ batch
     ├───components
     │   ├───containers
     │   └───presenters
-    ├───batch.page.ts
-    └───overview.page.ts
+    └───pages
+        ├───batch-page
+        └───overview-page
 ```
 
 ## <a name="sm-ngrx">State Management</a>
@@ -91,7 +92,7 @@ The root state will be application wide state such as global settings and curren
 
 ### <a name="sm-feat">Feature State</a>
 
-The feature state will contain state for each feature. Each feature module will have its own unique state handled by its own feature [Reducer(s)](https://ngrx.io/guide/store/reducers). Check [Batch Module](./src/app/batch/batch.module.ts#L9) for and example of configuring a feature level store
+The feature state will contain state for each feature. Each feature module will have its own unique state handled by its own feature [Reducer(s)](https://ngrx.io/guide/store/reducers). Check [Batch Module](./src/app/batch/batch.module.ts#L11) for and example of configuring a feature level store
 
 ### <a name="sm-place">Store Placement</a>
 
@@ -103,3 +104,24 @@ batch
         ├───actions
         └───reducers
 ```
+
+## <a name="dev-dev">Development Contributions</a>
+
+### <a name="dev-doc">Documentation</a>
+
+When creating any particular feature (component, service, module, reducer, etc...), documentation is the key. New code files must contain a comment header.
+
+```
+/*
+* Filename: my.component.ts
+* Creator: August Duet
+* Created: 10/25/19
+* Issue: ft/1
+* Desc: Example code header
+* ...
+*/
+```
+
+### <a name="dev-test">Testing</a>
+
+When working on an issue all code added must be tested. Each code directory will contain a testing.log file will include information on the testing plan.

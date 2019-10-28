@@ -125,3 +125,11 @@ When creating any particular feature (component, service, module, reducer, etc..
 ### <a name="dev-test">Testing</a>
 
 When working on an issue all code added must be tested. Each code directory will contain a testing.log file will include information on the testing plan.
+
+```
+# Issue: E/1 (Create Batch Module)
+'it should create'. Test that the batch module is created successfully
+'it should navigate to manage'. Test that navigation to route '/batches/manage' renders batch-page.
+'it should navigate to overview'. Test that navigation to route '/batches/overview' renders overview-page.
+'it should redirectTo overview'. Test that navigation to random unknown route renders overview-page.
+```

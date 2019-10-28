@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
 import { BatchPageComponent } from './pages/batch-page/batch-page.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',

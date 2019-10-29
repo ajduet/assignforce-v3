@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./batch-page.component.css']
 })
 export class BatchPageComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  /*
+   * Initialize the component when loaded
+   * grab the application state from the
+   * root state store
+   */
+  ngOnInit() {}
 }

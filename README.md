@@ -14,6 +14,7 @@
     - [Store Placement](#sm-place)
   - [Development Contributions](#dev-dev)
     - [Documentation](#dev-doc)
+    - [Commenting](#dev-com)
     - [Testing](#dev-test)
 
 # <a name="intro">AssignforceV3</a>
@@ -123,6 +124,22 @@ When creating any particular feature (component, service, module, reducer, etc..
 * Desc: Example code header
 * ...
 */
+```
+
+### <a name="dev-com">Commenting</a>
+
+All class methods must be commented to explain its purpose, any parameters the method should expect, and the return of the method.
+
+###### batch-page.component.ts
+
+```
+/*
+  * Initialize the component when loaded
+  * grab the application state from the
+  * root state store
+  */
+  ngOnInit() {
+  }
 ```
 
 ### <a name="dev-test">Testing</a>

@@ -22,6 +22,10 @@ export const routes: Routes = [
         component: BatchPageComponent
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: '/batches/overview'
   }
 ];
 @NgModule({

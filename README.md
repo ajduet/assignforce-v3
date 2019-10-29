@@ -124,12 +124,64 @@ When creating any particular feature (component, service, module, reducer, etc..
 
 ### <a name="dev-test">Testing</a>
 
-When working on an issue all code added must be tested. Each code directory will contain a testing.log file will include information on the testing plan.
+When working on an issue all code added must be tested. Each code directory will contain a \*.testing.log file which will include information on the testing plan.
+
+###### app.component.test.log
 
 ```
 # Issue: E/1 (Create Batch Module)
-'it should create'. Test that the batch module is created successfully
-'it should navigate to manage'. Test that navigation to route '/batches/manage' renders batch-page.
-'it should navigate to overview'. Test that navigation to route '/batches/overview' renders overview-page.
-'it should redirectTo overview'. Test that navigation to random unknown route renders overview-page.
+'it should create the app'. Test that the batch module is created successfully
+'it should navigate to overview from root'. Test that navigation to root will go to overview.
+'it should navigate to manage'. Test that navigation to route '/batches/manage'.
+'it should navigate to overview'. Test that navigation to route '/batches/overview'
+'it should navigate to overview on load'. Test that navigation to route '/batches/overview' when the app loads
+'it should redirectTo overview on unkown routes'. Test that navigation to random unknown route redirects to overview.
+```
+
+###### app.component.spec.ts
+
+```
+...
+//  #E/1 (Create Batch Module)
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  });
+
+  // #E/1 (Create Batch Module)
+  it('should navigate to overview from root', fakeAsync(() => {
+    router.navigateByUrl('');
+    tick();
+    expect(location.path()).toBe('/batches/overview');
+  }));
+
+  // #E/1 (Create Batch Module)
+  it('should navigate to manage', fakeAsync(() => {
+    router.navigate(['/batches/manage']);
+    tick();
+    expect(location.path()).toBe('/batches/manage');
+  }));
+
+  // #E/1 (Create Batch Module)
+  it('should navigate to overview', fakeAsync(() => {
+    router.navigate(['/batches/overview']);
+    tick();
+    expect(location.path()).toBe('/batches/overview');
+  }));
+
+  // #E/1 (Create Batch Module)
+  it('should navigate to overview on load', fakeAsync(() => {
+    router.navigateByUrl('');
+    tick();
+    expect(location.path()).toBe('/batches/overview');
+  }));
+
+  // #E/1 (Create Batch Module)
+  it('should navigate to overview on unknown route', fakeAsync(() => {
+    router.navigateByUrl('/not-going');
+    tick();
+    expect(location.path()).toBe('/batches/overview');
+  }));
+  ...
 ```

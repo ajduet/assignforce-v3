@@ -12,6 +12,9 @@
     - [Root](#sm-root)
     - [Feature](#sm-feat)
     - [Store Placement](#sm-place)
+  - [Development Contributions](#dev-dev)
+    - [Documentation](#dev-doc)
+    - [Testing](#dev-test)
 
 # <a name="intro">AssignforceV3</a>
 

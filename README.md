@@ -23,7 +23,7 @@ The restructuring of Assignforce to improve project architecture and state manag
 
 ## Development server
 
-Run `yarn start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `yarn local-start` or `npm local-start` for a dev server. This will start the angular server and the local api server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -55,8 +55,6 @@ The architecture of this project relies on 3 types of components: [Page](#comp-p
 
 Page components are top-level components. These components will be used in routing configurations for both top-level routes and sub-routes. Page components can interact with [Root](#sm-root) level application state, but should avoid interacting with [Feature](#sm-feat) level state. Page components will contain an assortment of [Container](#comp-cont) components to devise the layout of the page.
 
-####
-
 ### <a name="comp-cont">Container Components</a>
 
 Container components comprise the layout of a page component. Container components can interact with [Feature](#sm-feat) level state, but should avoid interacting with [Root](#sm-root) level state. Container components will contain an assorment of [Presentation](#comp-pres) components to comprise the UI of the [Page](#comp-page) components.
@@ -64,6 +62,10 @@ Container components comprise the layout of a page component. Container componen
 ### <a name="comp-pres">Presentation Components</a>
 
 Presentation components are the components that will comprise the UI of the application. Presentation components should not interact with any state but should use property and event binding to [Container](#comp-cont) components to facilitate state changes.
+
+### <a name="comp-except">Exceptional Components</a>
+
+Every once in a while a component will break the Page/Container/Presentation rule (i.e. navigation). This type of component can be standalone, but notably is not attached to any particular feature so it can have access to the [Root](#sm-root) state.
 
 #### <a name="comp-name">Component Naming</a>
 

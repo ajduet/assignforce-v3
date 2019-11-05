@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'batches'
+    redirectTo: '/batches/overview'
   },
   {
     path: 'batches',
@@ -13,7 +13,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'batches'
+    redirectTo: '/batches/overview'
   }
 ];
 

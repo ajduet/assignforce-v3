@@ -23,7 +23,7 @@ The restructuring of Assignforce to improve project architecture and state manag
 
 ## Development server
 
-Run `yarn local-start` or `npm local-start` for a dev server. This will start the angular server and the local api server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `yarn local-start` or `npm run local-start` for a dev server. This will start the angular server and the local api server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -80,10 +80,16 @@ Presentation components are placed in `module/components/presenters`. Page compo
 batch
     ├───components
     │   ├───containers
-    │   └───presenters
-    └───pages
-        ├───batch-page
-        └───overview-page
+    │   ├───presenters
+    │   ├───batch.component.ts
+    │   ├───batch.component.html
+    │   └───batch.component.css
+    ├───pages
+    │   ├───batch-page
+    │   └───overview-page
+    ├───batch-routing.module.ts
+    └───batch.module.ts
+
 ```
 
 ## <a name="sm-ngrx">State Management</a>
@@ -108,6 +114,8 @@ When creating a module and creating the necessary stage management components (r
 batch
     └───store
         ├───actions
+        ├───selectors
+        ├───effects
         └───reducers
 ```
 

@@ -1,5 +1,12 @@
+/*
+ * Filename: materials.module.ts
+ * Creator: August Duet
+ * Created: 10/25/19
+ * Issue: N/A
+ * Desc: Include the necessary angular material modules
+ * ...
+ */
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 // material modules
 import {
@@ -11,13 +18,7 @@ import {
 
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatTableModule,
-    MatTabsModule
-  ],
+  imports: [MatMenuModule, MatButtonModule, MatTableModule, MatTabsModule],
   exports: [MatMenuModule, MatButtonModule, MatTableModule, MatTabsModule]
 })
 export class MaterialsModule {}

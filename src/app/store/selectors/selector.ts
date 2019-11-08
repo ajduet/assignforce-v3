@@ -1,3 +1,11 @@
+/*
+ * Filename: selector.ts
+ * Creator: August Duet
+ * Created: 10/25/19
+ * Issue: N/A
+ * Desc: Define the selectors for slicing this level of the store
+ * ...
+ */
 import * as fromReducer from '../reducers';
 import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { User, NavTab } from 'src/app/shared/models';

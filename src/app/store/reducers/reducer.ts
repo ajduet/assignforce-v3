@@ -1,3 +1,11 @@
+/*
+ * Filename: reducer.ts
+ * Creator: August Duet
+ * Created: 10/25/19
+ * Issue: N/A
+ * Desc: Define the reducer function for this level of the store
+ * ...
+ */
 import { User } from 'src/app/shared/models/user';
 import { createReducer, Action } from '@ngrx/store';
 import { NavTab } from 'src/app/shared/models';

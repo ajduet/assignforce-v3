@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   async,
   ComponentFixture,
@@ -39,10 +40,16 @@ const trainerUser: User = {
 };
 
 let root = { user: svpUser, tabs };
+=======
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { NavComponent } from './nav.component';
+>>>>>>> 6dae3aed52d7a9ecc112abbc5690c4b5220e17c3
 
 describe('NavComponent', () => {
   let component: NavComponent;
   let fixture: ComponentFixture<NavComponent>;
+<<<<<<< HEAD
   let store: MockStore<fromStore.ApplicationState>;
   const initialState = { root };
 
@@ -52,12 +59,21 @@ describe('NavComponent', () => {
       declarations: [NavComponent],
       providers: [provideMockStore({ initialState })]
     }).compileComponents();
+=======
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ NavComponent ]
+    })
+    .compileComponents();
+>>>>>>> 6dae3aed52d7a9ecc112abbc5690c4b5220e17c3
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(NavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+<<<<<<< HEAD
     store = TestBed.get<Store<any>>(Store);
     store.overrideSelector(fromStore.selectTabsForUserState, tabs);
     store.setState({ root });
@@ -105,4 +121,11 @@ describe('NavComponent', () => {
     // + 1 for the a#signin-control
     expect(elems.length).toEqual(tabs.length + 1);
   }));
+=======
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+>>>>>>> 6dae3aed52d7a9ecc112abbc5690c4b5220e17c3
 });

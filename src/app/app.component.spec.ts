@@ -1,16 +1,16 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { MaterialsModule } from './shared/modules/materials/materials.module';
+import { NavComponent } from './shared/components/nav/nav.component';
+import { TestService } from './shared/services/test.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule, MaterialsModule],
+      declarations: [AppComponent, NavComponent],
+      providers: [TestService]
     }).compileComponents();
   }));
 
@@ -30,6 +30,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('assignforce-v3 app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain(
+      'assignforce-v3 app is running!'
+    );
   });
 });

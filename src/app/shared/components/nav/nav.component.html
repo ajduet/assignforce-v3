@@ -1,0 +1,18 @@
+<nav mat-tab-nav-bar>
+  <a
+    mat-tab-link
+    [routerLink]="tab.route"
+    routerLinkActive
+    #link="routerLinkActive"
+    [active]="link.isActive"
+    *ngFor="let tab of tabs$ | async"
+    >{{ tab.name }}</a
+  >
+  <span class="fill-space"></span>
+  <a mat-tab-link id="signin-control" *ngIf="user$ | async; else loginTemp"
+    >Logout</a
+  >
+  <ng-template #loginTemp>
+    <a mat-tab-link id="signin-control">Login</a>
+  </ng-template>
+</nav>

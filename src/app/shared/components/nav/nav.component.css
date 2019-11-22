@@ -17,3 +17,9 @@ a#signin-control {
   color: orangered !important;
   opacity: 1 !important;
 }
+
+.logo {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}

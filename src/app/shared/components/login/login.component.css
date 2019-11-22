@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  height: 90%;
+}
+
+.flex {
+  display: flex;
+}
+
+.f-lo-col {
+  flex-direction: column;
+}
+
+mat-card {
+  height: 400px;
+  width: 500px;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+mat-card-header {
+  background-color: orangered;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 50px;
+}
+
+mat-card-title {
+  margin-bottom: 0 !important;
+}
+
+mat-card-content {
+  height: 90%;
+}
+
+mat-card-content > form {
+  width: 100%;
+}
+
+button[mat-button].primary {
+  background-color: orangered;
+  color: white;
+}
+button[mat-button]:disabled {
+  background-color: #333;
+  color: black;
+}

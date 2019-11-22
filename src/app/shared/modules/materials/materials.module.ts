@@ -3,12 +3,27 @@ import {
   MatButtonModule,
   MatTableModule,
   MatTabsModule,
-  MatMenuModule
+  MatMenuModule,
+  MatDialogModule,
+  MatInputModule,
+  MatCardModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
 } from '@angular/material';
+import { A11yModule } from '@angular/cdk/a11y';
 
 @NgModule({
-  declarations: [],
-  imports: [MatTableModule, MatTabsModule, MatButtonModule, MatMenuModule],
-  exports: [MatTableModule, MatTabsModule, MatButtonModule, MatMenuModule]
+  exports: [
+    MatTableModule,
+    MatTabsModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatInputModule,
+    MatCardModule,
+    A11yModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+  ],
 })
 export class MaterialsModule {}

@@ -26,6 +26,16 @@ export const selectUserState = createSelector(
   fromReducer.getUser
 );
 
+export const selectSignInState = createSelector(
+  selectApplicationState,
+  fromReducer.getSignedIn
+);
+
+export const selectSigningInState = createSelector(
+  selectApplicationState,
+  fromReducer.getSigningIn
+);
+
 export const selectTabsState = createSelector(
   selectApplicationState,
   fromReducer.getTabs
@@ -43,7 +53,7 @@ export const selectTabsForUserState = createSelector(
           if (tab.roles.includes('*')) {
             uTabs.push(tab);
           }
-          if (tab.roles.some(r => user.roles.includes(r))) {
+          if (tab.roles.some((r) => user.roles.includes(r))) {
             uTabs.push(tab);
           }
         }

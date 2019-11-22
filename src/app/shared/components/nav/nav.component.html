@@ -1,4 +1,10 @@
 <nav mat-tab-nav-bar>
+  <a class="logo" [routerLink]="['/']"
+    ><img
+      src="assets/revature_logo_250.png"
+      style="width: 175px; height: 52px;"
+      alt="Revature Logo"
+  /></a>
   <a
     mat-tab-link
     [routerLink]="tab.route"
@@ -9,10 +15,14 @@
     >{{ tab.name }}</a
   >
   <span class="fill-space"></span>
-  <a mat-tab-link id="signin-control" *ngIf="user$ | async; else loginTemp"
+  <a
+    mat-tab-link
+    id="signin-control"
+    *ngIf="signedIn$ | async"
+    [routerLink]="['login']"
+    [queryParams]="{
+      action: 'logout'
+    }"
     >Logout</a
   >
-  <ng-template #loginTemp>
-    <a mat-tab-link id="signin-control">Login</a>
-  </ng-template>
 </nav>

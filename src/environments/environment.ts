@@ -9,9 +9,13 @@ export const environment = {
     region: 'us-east-1',
     cognito: {
       UserPoolId: 'us-east-1_hE8EafqgV',
-      ClientId: '4vd3i79p1ml95c14vkfl9i7567'
-    }
-  }
+      ClientId: '4vd3i79p1ml95c14vkfl9i7567',
+    },
+  },
+
+  assignforceClientConfigOpts: {
+    apiBaseUrl: 'http://localhost:3000/{service}',
+  },
 };
 
 /*

@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  aws: {
+    region: 'us-east-1',
+    cognito: {
+      UserPoolId: 'us-east-1_hE8EafqgV',
+      ClientId: '4vd3i79p1ml95c14vkfl9i7567'
+    }
+  }
 };
 
 /*

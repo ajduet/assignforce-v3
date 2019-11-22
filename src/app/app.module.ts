@@ -18,13 +18,16 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './shared/components/nav/nav.component';
 import { MaterialsModule } from './shared/modules/materials/materials.module';
+import { LoginComponent } from './shared/components/login/login.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
   : [];
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
+  declarations: [AppComponent, NavComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -33,12 +36,15 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     //
     StoreModule.forRoot({ root: fromStore.reducer }, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([fromStore.LoginEffects]),
     // Feature Modules
 
     // Material
-    MaterialsModule
+    MaterialsModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

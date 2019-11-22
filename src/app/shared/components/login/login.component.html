@@ -1,0 +1,62 @@
+<div class="container justify-center align-center">
+  <mat-card class="mat-elevation-z6">
+    <mat-card-header class="flex align-center">
+      <mat-card-title>Assignforce</mat-card-title>
+    </mat-card-header>
+    <mat-card-content
+      class="container flex justify-center align-center"
+      *ngIf="action === 'login'; else logout"
+    >
+      <ng-container>
+        <form
+          [formGroup]="loginForm"
+          class="flex f-lo-col"
+          (ngSubmit)="login(loginForm.value)"
+          *ngIf="!(signingIn$ | async); else elseSpinner"
+        >
+          <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+          <mat-form-field>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              placeholder="Email"
+              autofocus
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              placeholder="Password"
+              autofocus
+            />
+          </mat-form-field>
+          <mat-card-actions>
+            <button
+              mat-button
+              class="primary"
+              type="submit"
+              [disabled]="loginForm.invalid"
+            >
+              Submit
+            </button>
+          </mat-card-actions>
+        </form>
+      </ng-container>
+      <ng-template #elseSpinner>
+        <div class="flex justify-center align-center f-lo-col">
+          <h3>Please wait while we log you in...</h3>
+          <mat-spinner [color]="'warn'"></mat-spinner>
+        </div>
+      </ng-template>
+    </mat-card-content>
+    <ng-template #logout>
+      <mat-card-content class="flex justify-center align-center f-lo-col">
+        <h3>Please wait while we log you out....</h3>
+        <mat-spinner [color]="'warn'"></mat-spinner>
+      </mat-card-content>
+    </ng-template>
+  </mat-card>
+</div>

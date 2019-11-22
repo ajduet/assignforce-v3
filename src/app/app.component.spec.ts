@@ -3,14 +3,12 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { MaterialsModule } from './shared/modules/materials/materials.module';
 import { NavComponent } from './shared/components/nav/nav.component';
-import { TestService } from './shared/services/test.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, MaterialsModule],
-      declarations: [AppComponent, NavComponent],
-      providers: [TestService]
+      declarations: [AppComponent, NavComponent]
     }).compileComponents();
   }));
 

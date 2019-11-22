@@ -1,3 +1,13 @@
+
+/*
+ * Filename: app.component.ts
+ * Creator: August Duet
+ * Created: 10/25/19
+ * Issue: N/A
+ * Desc: The root component for the application
+ * ...
+ */
+  
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 

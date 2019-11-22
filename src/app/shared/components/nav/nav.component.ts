@@ -1,3 +1,11 @@
+/*
+ * Filename: nav.component.ts
+ * Creator: August Duet
+ * Created: 11/08/19
+ * Issue: E/6
+ * Desc: Shared navigation component for the application
+ * ...
+ */
 import { Component, OnInit } from '@angular/core';
 import * as fromStore from 'src/app/store';
 import { Store, select } from '@ngrx/store';

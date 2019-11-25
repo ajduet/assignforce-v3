@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 /*
  * Filename: http-client.ts
@@ -15,20 +16,16 @@ export interface RestClientConfig {
   servicePath: string;
 }
 
-export interface RestClientHeader {
-  [key: string]: string;
-}
 export interface RestClient<T> {
   configure(config: RestClientConfig);
-  get(): T | Observable<T> | Promise<T> | T[] | Observable<T[]> | Promise<T[]>;
+  get<X extends T>(): Observable<X> | Promise<X> | X;
+  get<X extends T[]>(): Observable<X[]> | Promise<X[]> | X[];
   post(it: T): Observable<T> | Promise<T> | void;
   put(it: T): Observable<T> | Promise<T> | void;
-  delete(it: T): Observable<T> | Promise<T> | void;
+  delete(): Observable<T> | Promise<T> | void;
   addPath(pathValue: string): RestClient<T>;
   addQuery(queryKey: string, queryValue: string): RestClient<T>;
-  addBody(bodyValue: any): RestClient<T>;
-  addHeader(header: RestClientHeader): RestClient<T>;
-  setHeaders(headers: RestClientHeader[]): RestClient<T>;
+  setHeaders(headers: HttpHeaders): RestClient<T>;
   checkNextRequestUrl(
     expected: string
   ): boolean | Observable<boolean> | Promise<boolean>;

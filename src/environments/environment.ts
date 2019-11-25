@@ -15,6 +15,8 @@ export const environment = {
 
   assignforceClientConfigOpts: {
     apiBaseUrl: 'http://localhost:3000/{service}',
+    serviceTemplateKey: 'service',
+    batchesServicePath: 'batches',
   },
 };
 

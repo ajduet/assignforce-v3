@@ -1,12 +1,11 @@
-import { RestClient, RestClientConfig, RestClientHeader } from './rest-client';
-import { HttpClient } from '@angular/common/http';
+import { RestClient, RestClientConfig } from './rest-client';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export class AssignforceEntityClient<T> implements RestClient<T> {
   private baseUrl: string;
   private nextRequestUrl: string;
-  private nextRequestBody: any;
-  private nextRequestHeaders: RestClientHeader[];
+  private nextRequestHeaders: HttpHeaders;
 
   constructor(private http: HttpClient) {}
 
@@ -19,19 +18,43 @@ export class AssignforceEntityClient<T> implements RestClient<T> {
     this.nextRequestUrl = this.baseUrl;
   }
 
-  get(): T | Observable<T> | Promise<T> | T[] | Observable<T[]> | Promise<T[]> {
-    throw new Error('Method not implemented.');
+  get<X>(): Observable<X> {
+    const headers = this.nextRequestHeaders;
+    const o = this.http.get<X>(this.nextRequestUrl, {
+      headers,
+    });
+    this.reset();
+    return o;
   }
-  post(it: T): void | Observable<T> | Promise<T> {
-    throw new Error('Method not implemented.');
+
+  post(it: T): Observable<T> {
+    const headers = this.nextRequestHeaders;
+
+    const o = this.http.post<T>(this.nextRequestUrl, it, {
+      headers,
+    });
+    this.reset();
+    return o;
   }
-  put(it: T): void | Observable<T> | Promise<T> {
-    throw new Error('Method not implemented.');
+  put(it: T): Observable<T> {
+    const headers = this.nextRequestHeaders;
+
+    const o = this.http.put<T>(this.nextRequestUrl, it, {
+      headers,
+    });
+    this.reset();
+    return o;
   }
-  delete(it: T): void | Observable<T> | Promise<T> {
-    throw new Error('Method not implemented.');
+  delete(): void | Observable<T> | Promise<T> {
+    const headers = this.nextRequestHeaders;
+
+    const o = this.http.delete<T>(this.nextRequestUrl, {
+      headers,
+    });
+    this.reset();
+    return o;
   }
-  addPath(pathValue: string): RestClient<T> {
+  addPath(pathValue: string): AssignforceEntityClient<T> {
     const parts = this.splitAndGetUrlParts();
 
     if (parts.length && parts[0]) {
@@ -42,7 +65,7 @@ export class AssignforceEntityClient<T> implements RestClient<T> {
       throw new Error('Entity client configuration not complete');
     }
   }
-  addQuery(queryKey: string, queryValue: string): RestClient<T> {
+  addQuery(queryKey: string, queryValue: string): AssignforceEntityClient<T> {
     const parts = this.splitAndGetUrlParts();
 
     if (parts.length) {
@@ -57,15 +80,8 @@ export class AssignforceEntityClient<T> implements RestClient<T> {
       throw new Error('Entity client configuration is not complete');
     }
   }
-  addBody(bodyValue: any): RestClient<T> {
-    this.nextRequestBody = bodyValue;
-    return this;
-  }
-  addHeader(header: RestClientHeader): RestClient<T> {
-    this.nextRequestHeaders = [...this.nextRequestHeaders, header];
-    return this;
-  }
-  setHeaders(headers: RestClientHeader[]): RestClient<T> {
+
+  setHeaders(headers: HttpHeaders): AssignforceEntityClient<T> {
     this.nextRequestHeaders = headers;
     return this;
   }
@@ -77,5 +93,10 @@ export class AssignforceEntityClient<T> implements RestClient<T> {
 
   private splitAndGetUrlParts(): string[] {
     return this.nextRequestUrl.split('?') || [];
+  }
+
+  private reset() {
+    this.nextRequestUrl = this.baseUrl;
+    this.nextRequestHeaders = null;
   }
 }

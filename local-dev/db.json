@@ -1,1 +1,38 @@
-{}
+{
+  "$schema": "./schema.json",
+  "batches": [],
+  "curricula": [],
+  "trainers": [],
+  "skills": [
+    {
+      "id": 1,
+      "name": "Java",
+      "tags": ["Core", "Java", "OOP"]
+    },
+    {
+      "id": 2,
+      "name": "C#",
+      "tags": ["Core", "C#", "OOP"]
+    },
+    {
+      "id": 3,
+      "name": "SQL",
+      "tags": ["Core", "RDBMS", "Data"]
+    },
+    {
+      "id": 4,
+      "name": "Oracle SQL",
+      "tags": ["Core", "RDBMS", "Data"]
+    },
+    {
+      "id": 5,
+      "name": "PostreSQL",
+      "tags": ["Core", "RDBMS", "Data"]
+    }
+  ],
+  "locations": [],
+  "buildings": [],
+  "rooms": [],
+  "projects": [],
+  "settings": []
+}
